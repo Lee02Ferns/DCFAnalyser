@@ -15,9 +15,11 @@ Beyond technical delivery, the solution was developed in close collaboration wit
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>PowerBI</b> 
-- <b>Alteryx</b>
-- <b>Excel</b>
+- <b>Excel: (Standardised input and error handling validation)</b>
+- <b>Alteryx: (Data transformation, sensitivity scenario generation)</b>
+- <b>PowerBI: (Visual layer, Semantic modelling, DAX, calculation groups)</b> 
+
+
 
 <h2>Project Overview</h2>
 
@@ -123,16 +125,95 @@ A core design decision was how to support flexible sensitivity analysis without 
   <tr>
     <td>B: Fully precomputed scenarios in Alteryx</td>
     <td>
-      <li>Near instantenous PowerBI performance</li>
+      <li>Near instantaneous PowerBI performance</li>
       <li>Cleaner model reduced DAX logic</li>
     </td>
     <td>
-       <li>Near instantenous PowerBI performance</li>
-      <li>Cleaner model reduced DAX logic</li>
+       <li>Limited sensitivity flexibility due to number of potential sensitivity combinations</li>
+      <li>Any additional scenarios would require reprocessing</li>
     </td>
+  </tr>
+    <tr>
+    <td>C: Hybrid Approach</td>
+    <td>
+      <li>Use Alteryx to generate bounded sensitivity combinations per component</li>
+      <li>Use Power BI as a filtering and aggregation engine via user selected filter parameters</li>
+    </td>
+    <td>
+      <li>Data model configuration across both PowerBI and Alteryx</li>
+        </td>
   </tr>
 </table>
 
+After several performance testing scenarios and discussion with stakeholders, option C was chosen as the final approach since it preserved near instantenaous performance of option B whilst providing full flexibliity of option A all whilst avoiding excessive strain on functioanlity and performance.
+
+<h2>PowerBI Schematic Model Design</h2>
+
+A star schema was adopted to support clear table relationships and filtering of fact and dimension tables.
+
+<h3>Core structure</h3>
+<li>Dim_CGU_Master: Qualitative attributes per CGU</li>
+<li>Fact_CashFlow_Component: List of cashflow adjusted sensitivity values containig the base value and sensitivity value. A separate table for each cash flow component</li>
+
+<h3>Advanced PowerBI modelling techniques applied</h3>
+<li>Field paramaters to allow dynamic selection of sensitivity values</li>
+<li>Disconnected calcuated tables to configure advanced visuals</li>
+<li>Calculation groups to reduce measure duplication and improve future maintenance</li>
+
+<h2>Data Quality, Validation and Governance</h2>
+Data reliability was priotirised throughout the ETL process:
+<li>Excel validations prevent invalid or incomplete population of template</li>
+<li>Alteryx workflows contained error handling to raise anomalies and block errors futher in pipeline</li>
+<li>Base model results were reconciled against clients model to ensure accuracy and completeness</li>
+<li>Detailed model and measure documentation for audit transparency and future handover</li>
+
+Regarding data privacy, reports are published to secure workspaces with role based security to ensure client confidential reports remain secure.
+
+<h2>Visual Design & User Experience</h2>
+
+The report experience was designed in close collaboration with audit teams and executives
+
+<h3>Key Design Principles</h3>
+<li>Immediate visiblity of base vs sensitivity impacts</li>
+<li>Clear RAG indicators for impairment risk</li>
+<li>Use of bookmarks to ensure minimal and seamless page navigation</li>
+<li>Drill-through capability for detail level investigation</li>
+
+<h3>Core Pages</h3>
+<li>Landing Page: Navigation and configuration starting point</li>
+<li>Overview Page: Headroom/Impairment KPI summary with base vs sensitivity scenario comparison</li>
+<li>Sensitivity Configuration Page: Field paramater driven adjustments</li>
+<li>Drill Through Page: Detail page accessible from other main pages for futher granular level investigation</li>
+
+<h2>User Navigation Story</h2>
+
+A typical user workflow would involve:
+<ol>
+  <li>User reviews base case result on overview page</li>
+  <li>High risk CGU's are identified via the RAG and conditional KPI visuals</li>
+  <li>User navigates to sensitivty configuration and applies adjustments</li>
+  <li>Results update instantenously whilst also showing base case as comparison</li>
+  <li>User drills through to detail level page to perform audit procedures and gather evidence</li>
+</ol>
+
+<h2>Outcomes & Impact</h2>
+<li>Reduced dependency on bespoke client excel models</li>
+<li>Enable rapid exploation of sensitivity scenarios</li>
+<li>Delivery of performant and scalable PowerBI model</li>
+<li>Established foundation for future integration with Microsoft Fabric and advanced analytic capabilities</li>
+
+<h2>Challenges & Lessons Learned</h2>
+
+<h3>Data Model Architecture</h3>
+During early stages, there was an assumption all logic could be performed in DAX. However during testing it was later discovered this resulted in significant impacts on visual loading and functionality. The learning here was to offload intensive calculations upstream in the pipeline where possible, using PowerBI primarily as a visual layer.
+
+<h3>Stakeholder Feedback and Alignment</h3>
+
+Early engagement with audit partners and managers ensured the solution was supported with real testing and feedback rather than building a solution not suited for audit testing.
+
+<h2>What I would do differently</h2>
+<li>Test memory usage and performance impacts earlier to avoid modelling revisions</li>
+<li>Explore calculation groups earlier to simplify inital DAX design and avoid revisions</li>
 
 
 <h2>Program walk-through:</h2>
