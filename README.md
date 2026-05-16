@@ -63,6 +63,77 @@ To ensure appropriate use and governance, the solution operates under the follow
   <li>Security and access controls are managed via standard Power BI role-based access</li>
 </ul>
 
+<h2>Data & Analytical Architecture</h2>
+
+<h3>High Level Design Principles</h3>
+
+<ul>
+  <li>Separate data preparation from analytical calculations</li>
+  <li>Precompute calculation logic where possible</li>
+  <li>Retain flexibility of sensitivities within PowerBI for user interaction</li>
+  <li>Optimise for performance, maintainability and audit transparency</li>
+</ul>
+
+<h3>Standardise Data Input</h3>
+
+A structured excel template is used to collect client cash flow assumptions
+<ul>
+  <li>Contains standardised cash flow categories</li>
+  <li>Built in data validation rules for data type and completeness</li>
+  <li>Designed to minimise downstream transformation issues</li>
+</ul>
+
+<h2>Data Transformation Layer (Alteryx)</h2>
+
+Alteryx is used as the primary transformation solution due to:
+<ul>
+  <li>Transparent and auditable workflows</li>
+  <li>Strong error handling and validation capabilities</li>
+  <li>Ability to create alteryx apps a seamless and professional method to ingest and transform the data for preparers</li>
+</ul>
+
+Responsiblities of this layer include:
+<ul>
+  <li>Normalising input data formats</li>
+  <li>Generating upper and lower sentivitiy scenarios</li>
+  <li>Producing a clean analytical dataset optimised for PowerBI</li>
+</ul>
+
+<h2>Key Architectural Decision: Sensitivity Modelling Strategy</h2>
+
+A core design decision was how to support flexible sensitivity analysis without exceeding Power BI memory or performance constraints. Three approaches were evaluated:
+
+<table>
+  <tr>
+    <th>Option</th>
+    <th>Advantages</th>
+    <th>Disadvantages</th>
+  </tr>
+  <tr>
+    <td>A: Fully DAX based calculation in PowerBI</td>
+    <td>
+      <li>Simple ingestion model </li>
+      <li>Single source of truth </li>
+    </td>
+    <td>
+      <li>Memory intensive with multiple sensitivity dimensions</li>
+      <li>Performance degradation observed during testing when applying multiple sensitivities simultaneously</li>
+        </td>
+  </tr>
+  <tr>
+    <td>B: Fully precomputed scenarios in Alteryx</td>
+    <td>
+      <li>Near instantenous PowerBI performance</li>
+      <li>Cleaner model reduced DAX logic</li>
+    </td>
+    <td>
+       <li>Near instantenous PowerBI performance</li>
+      <li>Cleaner model reduced DAX logic</li>
+    </td>
+  </tr>
+</table>
+
+
 
 <h2>Program walk-through:</h2>
 
