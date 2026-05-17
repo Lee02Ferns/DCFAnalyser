@@ -201,6 +201,7 @@ The report experience was designed in close collaboration with audit teams and e
 <li>Sensitivity Configuration Page: Field paramater driven adjustments</li>
 <li>Drill Through Page: Detail page accessible from other main pages for futher granular level investigation</li>
 
+
 <h2>User Navigation Story</h2>
 
 A typical user workflow would involve:
