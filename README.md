@@ -177,11 +177,11 @@ A star schema was adopted to support clear table relationships and filtering of 
 <li>Calculation groups to reduce measure duplication and improve future maintenance</li>
 
 <h2>Data Quality, Validation and Governance</h2>
-Data reliability was prioritised throughout the ETL process:
-<li>Excel validations prevent invalid or incomplete population of template</li>
-<li>Alteryx workflows contained error handling to raise anomalies and block errors further in pipeline</li>
-<li>Base model results were reconciled against client’s model to ensure accuracy and completeness</li>
-<li>Detailed model and measure documentation for audit transparency and future handover</li>
+Data reliability was prioritised throughout the ETL process. This included:
+<li>Excel validations to prevent invalid or incomplete population of template</li>
+<li>Alteryx workflows containing error handling to raise anomalies and block errors further in pipeline</li>
+<li>Base model DCF calculations were reconciled against client’s model to ensure accuracy and completeness</li>
+<li>Detailed model and measure documentation performed for audit transparency and future handover</li>
 
 Regarding data privacy, reports are published to secure workspaces with role-based security to ensure client confidential reports remain secure.
 
