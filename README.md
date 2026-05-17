@@ -6,9 +6,9 @@ The DCF (Discounted Cash Flow) analyser is a financial model analyser designed t
 
 <h2>Executive Summary</h2>
 
-This solution highlights a scalable Power BI driven solution designed to support impairment testing through sensitivity analysis of cash generating units (CGUs). The analyser standardises complex client cash flow models into a template, enables interactive sensitivity scenario exploration, and provides clear visibility into headroom and impairment risk while remaining performant and maintainable with larger client datasets.
+This solution highlights a scalable Power BI-driven solution designed to support impairment testing through sensitivity analysis of cash generating units (CGUs). The analyser standardises complex client cash flow models into a template, enables interactive sensitivity scenario exploration, and provides clear visibility into headroom and impairment risk while remaining performant and maintainable with larger client datasets.
 
-The solution was created using multiple tools. Alteryx was used to perform initial transformations and sensitivity scenario generation, while Power BI is leveraged as a analytical and visualisation layer using field parameters, calculation groups, and a star schema semantic model to allow users to interact with cash flow assumptions. This design balances analytical flexibility with engine and memory constraints commonly encountered in large financial models.
+The solution was created using multiple tools. Alteryx was used to perform initial transformations and sensitivity scenario generation, while Power BI is leveraged as an analytical and visualisation layer using field parameters, calculation groups, and a star schema semantic model to allow users to interact with cash flow assumptions. This design balances analytical flexibility with engine and memory constraints commonly encountered in large financial models.
 
 Beyond technical delivery, the solution was developed in close collaboration with senior audit stakeholders to align with real world audit testing workpapers and testing procedures. Key outcomes included reduced manual excel model rework, faster sensitivity assessment, and improved consistency across engagements. The case study demonstrates principal level strengths in analytical architecture, performance trade off evaluation, stakeholder alignment, and delivery of governed, production ready BI solutions.
 
@@ -78,7 +78,7 @@ To ensure appropriate use and governance, the solution operates under the follow
 
 <h3>Standardise Data Input</h3>
 
-A structured excel template is used to collect client cash flow assumptions
+A structured excel template is used to collect client cash flow assumptions.
 <ul>
   <li>Contains standardised cash flow categories</li>
   <li>Built in data validation rules for data type and completeness</li>
@@ -98,16 +98,16 @@ Alteryx is used as the primary transformation solution due to:
 <ul>
   <li>Transparent and auditable workflows</li>
   <li>Strong error handling and validation capabilities</li>
-  <li>Ability to create alteryx apps a seamless and professional method to ingest and transform the data for preparers</li>
+  <li>Ability to create Alteryx apps a seamless and professional method to ingest and transform the data for preparers</li>
 </ul>
 
 
 
 
-Responsiblities of this layer include:
+Responsibilities of this layer include:
 <ul>
   <li>Normalising input data formats</li>
-  <li>Generating upper and lower sentivitiy scenarios</li>
+  <li>Generating upper and lower sensitivity scenarios</li>
   <li>Producing a clean analytical dataset optimised for PowerBI</li>
 </ul>
 
@@ -157,7 +157,7 @@ A core design decision was how to support flexible sensitivity analysis without 
   </tr>
 </table>
 
-After several performance testing scenarios and discussion with stakeholders, option C was chosen as the final approach since it preserved near instantenaous performance of option B whilst providing full flexibliity of option A all whilst avoiding excessive strain on functioanlity and performance.
+After several performance testing scenarios and discussion with stakeholders, option C was chosen as the final approach since it preserved near instantaneous performance of option B whilst providing full flexibility of option A all whilst avoiding excessive strain on functionality and performance.
 
 <h2>PowerBI Schematic Model Design</h2>
 
@@ -165,32 +165,32 @@ A star schema was adopted to support clear table relationships and filtering of 
 
 <h3>Core structure</h3>
 <li>Dim_CGU_Master: Qualitative attributes per CGU</li>
-<li>Fact_CashFlow_Component: List of cashflow adjusted sensitivity values containig the base value and sensitivity value. A separate table for each cash flow component</li>
+<li>Fact_CashFlow_Component: List of cashflow adjusted sensitivity values containing the base value and sensitivity value. A separate table for each cash flow component</li>
 
 <br>
 
 <img width="1031" height="368" alt="04_DataTableModel" src="https://github.com/user-attachments/assets/c469031c-9620-4a33-b76d-ad05e0a64d05" />
 
 <h3>Advanced PowerBI modelling techniques applied</h3>
-<li>Field paramaters to allow dynamic selection of sensitivity values</li>
-<li>Disconnected calcuated tables to configure advanced visuals</li>
+<li>Field parameters to allow dynamic selection of sensitivity values</li>
+<li>Disconnected calculated tables to configure advanced visuals</li>
 <li>Calculation groups to reduce measure duplication and improve future maintenance</li>
 
 <h2>Data Quality, Validation and Governance</h2>
-Data reliability was priotirised throughout the ETL process:
+Data reliability was prioritised throughout the ETL process:
 <li>Excel validations prevent invalid or incomplete population of template</li>
-<li>Alteryx workflows contained error handling to raise anomalies and block errors futher in pipeline</li>
-<li>Base model results were reconciled against clients model to ensure accuracy and completeness</li>
+<li>Alteryx workflows contained error handling to raise anomalies and block errors further in pipeline</li>
+<li>Base model results were reconciled against client’s model to ensure accuracy and completeness</li>
 <li>Detailed model and measure documentation for audit transparency and future handover</li>
 
-Regarding data privacy, reports are published to secure workspaces with role based security to ensure client confidential reports remain secure.
+Regarding data privacy, reports are published to secure workspaces with role-based security to ensure client confidential reports remain secure.
 
 <h2>Visual Design & User Experience</h2>
 
-The report experience was designed in close collaboration with audit teams and executives
+The report experience was designed in close collaboration with audit teams and executives.
 
 <h3>Key Design Principles</h3>
-<li>Immediate visiblity of base vs sensitivity impacts</li>
+<li>Immediate visibility of base vs sensitivity impacts</li>
 <li>Clear RAG indicators for impairment risk</li>
 <li>Use of bookmarks to ensure minimal and seamless page navigation</li>
 <li>Drill-through capability for detail level investigation</li>
@@ -198,8 +198,8 @@ The report experience was designed in close collaboration with audit teams and e
 <h3>Core Pages</h3>
 <li>Landing Page: Navigation and configuration starting point</li>
 <li>Overview Page: Headroom/Impairment KPI summary with base vs sensitivity scenario comparison</li>
-<li>Sensitivity Configuration Page: Field paramater driven adjustments</li>
-<li>Drill Through Page: Detail page accessible from other main pages for futher granular level investigation</li>
+<li>Sensitivity Configuration Page: Field parameter driven adjustments</li>
+<li>Drill Through Page: Detail page accessible from other main pages for further granular level investigation</li>
 
 
 <h2>User Navigation Story</h2>
@@ -207,26 +207,26 @@ The report experience was designed in close collaboration with audit teams and e
 A typical user workflow would involve:
 <ol>
   <li>User reviews base case result on overview page</li>
-  <li>High risk CGU's are identified via the RAG and conditional KPI visuals</li>
-  <li>User navigates to sensitivty configuration and applies adjustments</li>
+  <li>High risk CGUs are identified via the RAG and conditional KPI visuals</li>
+  <li>User navigates to sensitivity configuration and applies adjustments</li>
 
 
 
   
-  <li>Results update instantenously whilst also showing base case as comparison</li>
+  <li>Results update instantaneously whilst also showing base case as comparison</li>
   <li>User drills through to detail level page to perform audit procedures and gather evidence</li>
 </ol>
 
 <h2>Outcomes & Impact</h2>
 <li>Reduced dependency on bespoke client excel models</li>
-<li>Enable rapid exploation of sensitivity scenarios</li>
+<li>Enable rapid exploration of sensitivity scenarios</li>
 <li>Delivery of performant and scalable PowerBI model</li>
 <li>Established foundation for future integration with Microsoft Fabric and advanced analytic capabilities</li>
 
 <h2>Challenges & Lessons Learned</h2>
 
 <h3>Data Model Architecture</h3>
-During early stages, there was an assumption all logic could be performed in DAX. However during testing it was later discovered this resulted in significant impacts on visual loading and functionality. The learning here was to offload intensive calculations upstream in the pipeline where possible, using PowerBI primarily as a visual layer.
+During early stages, there was an assumption all logic could be performed in DAX. However, during testing, it was discovered this resulted in significant impacts on visual loading and functionality. The learning here was to offload intensive calculations upstream in the pipeline where possible, using PowerBI primarily as a visual layer.
 
 <h3>Stakeholder Feedback and Alignment</h3>
 
@@ -234,39 +234,7 @@ Early engagement with audit partners and managers ensured the solution was suppo
 
 <h2>What I would do differently</h2>
 <li>Test memory usage and performance impacts earlier to avoid modelling revisions</li>
-<li>Explore calculation groups earlier to simplify inital DAX design and avoid revisions</li>
-
-
-<h2>Program walk-through:</h2>
-
-<p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
+<li>Explore calculation groups earlier to simplify initial DAX design and avoid revisions</li>
 
 <!--
  ```diff
