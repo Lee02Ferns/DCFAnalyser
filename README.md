@@ -197,9 +197,6 @@ The report experience was designed in close collaboration with audit teams and e
 
 <h3>Core Pages</h3>
 
-<video src="https://github.com/Lee02Ferns/DCFAnalyser/releases/download/v1.0/06PageFunctionality.mp4" controls="controls" style="max-width: 100%;">
-</video>
-
 <li>Landing Page: Navigation and configuration starting point</li>
 <li>Overview Page: Headroom/Impairment KPI summary with base vs sensitivity scenario comparison</li>
 <li>Sensitivity Configuration Page: Field parameter driven adjustments</li>
