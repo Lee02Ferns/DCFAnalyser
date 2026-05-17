@@ -85,6 +85,13 @@ A structured excel template is used to collect client cash flow assumptions
   <li>Designed to minimise downstream transformation issues</li>
 </ul>
 
+<h4>Cash Flow Template</h4>
+<img width="687" height="682" alt="01_CashFlowTemplate" src="https://github.com/user-attachments/assets/6dde5ec9-1c8f-4818-b5af-fc04889d6ac4" />
+
+<h4>CGU Master Template</h4>
+<img width="694" height="473" alt="02_SiteDetailsTemplate" src="https://github.com/user-attachments/assets/de22784c-12f1-4876-9922-d379127ebfdc" />
+
+
 <h2>Data Transformation Layer (Alteryx)</h2>
 
 Alteryx is used as the primary transformation solution due to:
@@ -94,12 +101,17 @@ Alteryx is used as the primary transformation solution due to:
   <li>Ability to create alteryx apps a seamless and professional method to ingest and transform the data for preparers</li>
 </ul>
 
+
+
+
 Responsiblities of this layer include:
 <ul>
   <li>Normalising input data formats</li>
   <li>Generating upper and lower sentivitiy scenarios</li>
   <li>Producing a clean analytical dataset optimised for PowerBI</li>
 </ul>
+
+<img width="1530" height="628" alt="03_AlteryxWorkfow" src="https://github.com/user-attachments/assets/e3dfab11-ee71-4369-8f33-d092942b7bd7" />
 
 <h2>Key Architectural Decision: Sensitivity Modelling Strategy</h2>
 
@@ -155,6 +167,10 @@ A star schema was adopted to support clear table relationships and filtering of 
 <li>Dim_CGU_Master: Qualitative attributes per CGU</li>
 <li>Fact_CashFlow_Component: List of cashflow adjusted sensitivity values containig the base value and sensitivity value. A separate table for each cash flow component</li>
 
+<br>
+
+<img width="1031" height="368" alt="04_DataTableModel" src="https://github.com/user-attachments/assets/c469031c-9620-4a33-b76d-ad05e0a64d05" />
+
 <h3>Advanced PowerBI modelling techniques applied</h3>
 <li>Field paramaters to allow dynamic selection of sensitivity values</li>
 <li>Disconnected calcuated tables to configure advanced visuals</li>
@@ -192,6 +208,10 @@ A typical user workflow would involve:
   <li>User reviews base case result on overview page</li>
   <li>High risk CGU's are identified via the RAG and conditional KPI visuals</li>
   <li>User navigates to sensitivty configuration and applies adjustments</li>
+
+
+
+  
   <li>Results update instantenously whilst also showing base case as comparison</li>
   <li>User drills through to detail level page to perform audit procedures and gather evidence</li>
 </ol>
