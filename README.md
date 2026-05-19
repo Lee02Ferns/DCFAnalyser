@@ -8,9 +8,9 @@ The DCF (Discounted Cash Flow) analyser is a financial model analyser designed t
 
 This solution highlights a scalable Power BI-driven solution designed to support impairment testing through sensitivity analysis of cash generating units (CGUs). The analyser standardises complex client cash flow models into a template, enables interactive sensitivity scenario exploration, and provides clear visibility into headroom and impairment risk while remaining performant and maintainable with larger client datasets.
 
-The solution was created using multiple tools. Alteryx was used to perform initial transformations and sensitivity scenario generation, while Power BI is leveraged as an analytical and visualisation layer using field parameters, calculation groups, and a star schema semantic model to allow users to interact with cash flow assumptions. This design balances analytical flexibility with engine and memory constraints commonly encountered in large financial models.
+The solution was created using multiple tools. Alteryx was used to perform initial transformations and sensitivity scenario generation, while Power BI is leveraged as an analytical and visualisation layer using field parameters, calculation groups and a star schema semantic model to allow users to interact with cash flow assumptions. 
 
-Beyond technical delivery, the solution was developed in close collaboration with senior audit stakeholders to align with real world audit testing workpapers and testing procedures. Key outcomes included reduced manual excel model rework, faster sensitivity assessment, and improved consistency across engagements. The case study demonstrates principal level strengths in analytical architecture, performance trade off evaluation, stakeholder alignment, and delivery of governed, production ready BI solutions.
+Beyond technical delivery, the solution was developed in close collaboration with senior audit stakeholders to align with real world audit testing workpapers and testing procedures. Key outcomes included reduced manual excel model rework, faster sensitivity assessment and improved consistency across engagements. During this project, several concepts such as analytical architecture, performance trade off evaluation, and stakeholder alignment were considered when developing the solution.
 
 
 <h2>Languages and Utilities Used</h2>
@@ -23,9 +23,9 @@ Beyond technical delivery, the solution was developed in close collaboration wit
 
 <h2>Project Overview</h2>
 
-This project delivers a Discounted Cash Flow (DCF) and impairment analysis platform to support audit teams in assessing impairment risk across cash generating units. The solution standardises client cash flow inputs, enables controlled sensitivity analysis, and provides insights into headroom and impairment outcomes.
+This project delivers a Discounted Cash Flow (DCF) and impairment analysis solution to support audit teams in assessing impairment risk across cash generating units. The solution standardises client cash flow inputs, enables controlled sensitivity analysis and provides insights into headroom and impairment outcomes.
 
-The analyser is designed for use across multiple industries (e.g. Technology, Retail, Energy) and focuses on scenario analysis, risk identification, and decision support.
+The analyser is designed for use across multiple industries (e.g. Technology, Retail, Energy) and focuses on scenario and goal seek style analysis, risk identification, and decision support.
 
 <h3>What is the Business Problem?</h3>
 
@@ -36,7 +36,7 @@ Client provided DCF models are often:
   <li>Time consuming for audit teams to re-engineer for testing purposes</li>
 </ul>
 
-This results in excessive manual effort, inconsistent analysis, and reduced time available for professional judgement and insights.
+This results in excessive manual effort, inconsistent analysis and less time for professional audit judgement and insights.
 
 <h3>Who are the stakeholders and users?</h3>
 
@@ -49,7 +49,7 @@ This results in excessive manual effort, inconsistent analysis, and reduced time
 <h3>What is the success criteria?</h3>
 
 <ul>
-  <li>Reduction in manual model build effort by audit teams</li>
+  <li>A reduction in manual model build effort by audit teams</li>
   <li>Consistent and repeatable sensitivity analysis across engagements</li>
   <li>Immediate visibility of headroom / impairment impacts under alternative assumptions</li>
 </ul>
@@ -61,8 +61,6 @@ To ensure appropriate use and governance, the solution operates under the follow
 <ul>
   <li>Client cash flow models are assumed to be internally consistent and approved by management</li>
   <li>Sensitivity ranges are bounded to audit approved upper and lower thresholds</li>
-  <li>The solution supports analytical assessment, not statutory valuation signs off</li>
-  <li>Security and access controls are managed via standard Power BI role-based access</li>
 </ul>
 
 <h2>Data & Analytical Architecture</h2>
@@ -98,7 +96,7 @@ Alteryx is used as the primary transformation solution due to:
 <ul>
   <li>Transparent and auditable workflows</li>
   <li>Strong error handling and validation capabilities</li>
-  <li>Ability to create Alteryx apps a seamless and professional method to ingest and transform the data for preparers</li>
+  <li>Ability to create Alteryx apps, a seamless and professional method to ingest and transform the data for preparers</li>
 </ul>
 
 
@@ -157,7 +155,7 @@ A core design decision was how to support flexible sensitivity analysis without 
   </tr>
 </table>
 
-After several performance testing scenarios and discussion with stakeholders, option C was chosen as the final approach since it preserved near instantaneous performance of option B whilst providing full flexibility of option A all whilst avoiding excessive strain on functionality and performance.
+After several performance testing scenarios and discussion with stakeholders, **option C** was chosen as the final approach since it preserved near instantaneous performance of option B whilst providing full flexibility of option A all whilst avoiding excessive strain on functionality and performance.
 
 <h2>PowerBI Schematic Model Design</h2>
 
